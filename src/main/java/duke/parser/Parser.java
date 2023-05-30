@@ -19,6 +19,12 @@ import duke.exceptions.DukeException;
 
 public class Parser {
 
+    /**
+     * Parses the user input and returns the corresponding command.
+     * @param fullCommand
+     * @return
+     * @throws DukeException
+     */
     public static Command parse(String fullCommand) throws DukeException {
         String[] arr = fullCommand.split(" ", 2);
         String commandType = arr[0].toLowerCase();

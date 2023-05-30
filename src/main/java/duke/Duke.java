@@ -23,13 +23,34 @@ import duke.storage.Storage;
 import duke.tasks.TaskList;
 import duke.ui.Ui;
 
+/**
+ * Duke is a personal assistant chatbot that helps a person to keep track of various things.
+ */
 public class Duke {
+
+    /**
+     * The storage of the Duke program.
+     */
     private Storage storage;
+    /**
+     * The task list of the Duke program.
+     */
     private TaskList tasks;
+
+    /**
+     * The user interface of the Duke program.
+     */
     private Ui ui;
 
+    /**
+     * Constructs a Duke object.
+     */
     public Duke() {}
 
+    /**
+     * Constructs a Duke object with the specified file path.
+     * @param filePath
+     */
     public Duke(String filePath) {
         ui = new Ui();
         storage = new Storage(filePath);
@@ -41,6 +62,9 @@ public class Duke {
         }
     }
 
+    /**
+     * Runs the Duke program.
+     */
     public void run() {
         ui.showWelcome();
         boolean isExit = false;
@@ -59,6 +83,11 @@ public class Duke {
         }
     }
 
+    /**
+     * Gets the response of the Duke program.
+     * @param input
+     * @return
+     */
     public String getResponse(String input) {
         try {
             Command c = Parser.parse(input);

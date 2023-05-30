@@ -7,11 +7,30 @@ import duke.tasks.TaskList;
 import duke.tasks.ToDo;
 import duke.ui.Ui;
 
+/**
+ * Represents a command to add a todo task.
+ */
 public class TodoCommand extends Command {
+
+    /**
+     * The description of the todo task.
+     */
     private String desc;
+
+    /**
+     * Constructs a TodoCommand object.
+     * @param message
+     */
     public TodoCommand(String message) {
         this.desc = message;
     }
+
+    /**
+     * Executes the todo command.
+     * @param tl
+     * @param ui
+     * @param s
+     */
     @Override
     public void execute(TaskList tl, Ui ui, Storage s) {
         ToDo t = new ToDo(desc);
@@ -23,6 +42,11 @@ public class TodoCommand extends Command {
             ui.display("Got it. I've added this task:" + LS + t + LS + tl.numTasksMsg());
         }
     }
+
+    /**
+     * Handles the case where the todo task is a duplicate.
+     * @return
+     */
     @Override
     public boolean isExit() {
         return false;

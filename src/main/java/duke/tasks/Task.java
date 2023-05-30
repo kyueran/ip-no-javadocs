@@ -3,24 +3,57 @@ package duke.tasks;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
+/**
+ * Represents a task.
+ */
 public abstract class Task {
+
+    /**
+     * The description of the task.
+     */
     protected String description;
+
+    /**
+     * Whether the task is done.
+     */
     protected boolean isDone;
 
+    /**
+     * Constructs a Task object.
+     * @param description
+     */
     public Task(String description) {
         this.description = description;
         this.isDone = false;
     }
+
+    /**
+     * Returns the status icon of the task.
+     * @return
+     */
     public String getStatusIcon() {
         return (this.isDone ? "X" : " "); // mark done task with X
     }
+
+    /**
+     * Marks the task as done.
+     */
     public void markAsDone() {
         this.isDone = true;
     }
+
+    /**
+     * Unmarks the task as done.
+     */
     public void unmarkAsDone() {
         this.isDone = false;
     }
 
+    /**
+     * Returns the date in the format of yyyy-MM-dd.
+     * @param date
+     * @return
+     */
     public String fixDateToParse(String date) {
         String error = "0000-01-01";
         String[] arr = date.split("/");
@@ -41,6 +74,11 @@ public abstract class Task {
         return year + "-" + month + "-" + day;
     }
 
+    /**
+     * Returns the day or month in the format of MM or DD.
+     * @param dayOrMonth
+     * @return
+     */
     private String fixDayMonth(String dayOrMonth) {
         String result;
         if (dayOrMonth.length() == 1) {
@@ -53,6 +91,11 @@ public abstract class Task {
         return result;
     }
 
+    /**
+     * Returns the date in the format of MMM d yyyy.
+     * @param date
+     * @return
+     */
     public String split(String date) {
         String[] arr = date.split(" ", 2);
         String stringToParse = fixDateToParse(arr[0]);
@@ -64,10 +107,18 @@ public abstract class Task {
         }
     }
 
+    /**
+     * Returns the task in the format of string.
+     * @return
+     */
     @Override
     public String toString() {
         return "[" + this.getStatusIcon() + "] " + this.description;
     }
 
+    /**
+     * Returns the task in the format of text.
+     * @return
+     */
     public abstract String toText();
 }
