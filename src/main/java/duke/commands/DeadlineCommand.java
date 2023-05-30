@@ -7,10 +7,19 @@ import duke.tasks.Deadline;
 import duke.tasks.TaskList;
 import duke.ui.Ui;
 
+/**
+ * The type Deadline command.
+ */
 public class DeadlineCommand extends Command {
     private String desc;
     private String by;
 
+    /**
+     * Instantiates a new Deadline command.
+     *
+     * @param desc the desc
+     * @param by   the by
+     */
     public DeadlineCommand(String desc, String by) {
         this.desc = desc;
         this.by = by;

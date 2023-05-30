@@ -5,6 +5,9 @@ import static duke.ui.Ui.LS;
 
 import duke.exceptions.DukeException;
 
+/**
+ * The enum Command type.
+ */
 public enum CommandType {
     BYE("bye", new DukeException("")),
     LIST("list", new DukeException("")),
@@ -25,6 +28,11 @@ public enum CommandType {
         this.e = e;
     }
 
+    /**
+     * Gets err.
+     *
+     * @return the err
+     */
     public DukeException getErr() {
         return this.e;
     }

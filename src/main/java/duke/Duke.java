@@ -23,13 +23,24 @@ import duke.storage.Storage;
 import duke.tasks.TaskList;
 import duke.ui.Ui;
 
+/**
+ * The type Duke.
+ */
 public class Duke {
     private Storage storage;
     private TaskList tasks;
     private Ui ui;
 
+    /**
+     * Instantiates a new Duke.
+     */
     public Duke() {}
 
+    /**
+     * Instantiates a new Duke.
+     *
+     * @param filePath the file path
+     */
     public Duke(String filePath) {
         ui = new Ui();
         storage = new Storage(filePath);
@@ -41,6 +52,9 @@ public class Duke {
         }
     }
 
+    /**
+     * Run.
+     */
     public void run() {
         ui.showWelcome();
         boolean isExit = false;
@@ -59,6 +73,12 @@ public class Duke {
         }
     }
 
+    /**
+     * Gets response.
+     *
+     * @param input the input
+     * @return the response
+     */
     public String getResponse(String input) {
         try {
             Command c = Parser.parse(input);

@@ -3,24 +3,58 @@ package duke.tasks;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
+/**
+ * The type Task.
+ */
 public abstract class Task {
+    /**
+     * The Description.
+     */
     protected String description;
+    /**
+     * The Is done.
+     */
     protected boolean isDone;
 
+    /**
+     * Instantiates a new Task.
+     *
+     * @param description the description
+     */
     public Task(String description) {
         this.description = description;
         this.isDone = false;
     }
+
+    /**
+     * Gets status icon.
+     *
+     * @return the status icon
+     */
     public String getStatusIcon() {
         return (this.isDone ? "X" : " "); // mark done task with X
     }
+
+    /**
+     * Mark as done.
+     */
     public void markAsDone() {
         this.isDone = true;
     }
+
+    /**
+     * Unmark as done.
+     */
     public void unmarkAsDone() {
         this.isDone = false;
     }
 
+    /**
+     * Fix date to parse string.
+     *
+     * @param date the date
+     * @return the string
+     */
     public String fixDateToParse(String date) {
         String error = "0000-01-01";
         String[] arr = date.split("/");
@@ -53,6 +87,12 @@ public abstract class Task {
         return result;
     }
 
+    /**
+     * Split string.
+     *
+     * @param date the date
+     * @return the string
+     */
     public String split(String date) {
         String[] arr = date.split(" ", 2);
         String stringToParse = fixDateToParse(arr[0]);
@@ -69,5 +109,10 @@ public abstract class Task {
         return "[" + this.getStatusIcon() + "] " + this.description;
     }
 
+    /**
+     * To text string.
+     *
+     * @return the string
+     */
     public abstract String toText();
 }
