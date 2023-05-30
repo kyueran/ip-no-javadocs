@@ -19,6 +19,14 @@ import duke.exceptions.DukeException;
 
 public class Parser {
 
+    /**
+     * The function parses a given command string and returns the corresponding command object.
+     *
+     * @param fullCommand A string representing the full command input by the user.
+     * @return The method `parse` returns an instance of a subclass of the `Command` class, depending on the type of
+     * command specified in the `fullCommand` parameter. If the command is not recognized, an instance of the
+     * `IncorrectCommand` class is returned.
+     */
     public static Command parse(String fullCommand) throws DukeException {
         String[] arr = fullCommand.split(" ", 2);
         String commandType = arr[0].toLowerCase();

@@ -5,6 +5,12 @@ import static duke.ui.Ui.LS;
 
 import duke.exceptions.DukeException;
 
+
+// `public enum CommandType {` is defining an enumeration class named `CommandType`. An enumeration is a special type of
+// class in Java that represents a fixed set of constants. In this case, `CommandType` defines a set of constants that
+// represent the different types of commands that the Duke chatbot can handle. Each constant has a name (e.g. `BYE`,
+// `LIST`, `MARK`, etc.) and an associated error message (stored as a `DukeException` object). The `CommandType` enum also
+// provides a method `getErr()` to retrieve the error message associated with a particular command type.
 public enum CommandType {
     BYE("bye", new DukeException("")),
     LIST("list", new DukeException("")),
@@ -25,10 +31,18 @@ public enum CommandType {
         this.e = e;
     }
 
+    /**
+     * The function returns a DukeException object.
+     *
+     * @return A DukeException object named "e" is being returned.
+     */
     public DukeException getErr() {
         return this.e;
     }
 
+    // The `toString()` method is overriding the default `toString()` method inherited from the `Object` class. It returns
+    // a `String` representation of the `CommandType` object, which is the `word` field of the enum constant. This method
+    // is useful when we need to convert an enum constant to a string representation.
     @Override
     public String toString() {
         return this.word;

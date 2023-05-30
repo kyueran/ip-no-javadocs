@@ -64,6 +64,12 @@ public class Storage {
         tempFile.renameTo(this.storageFile);
     }
 
+    /**
+     * The function modifies a specific line in a file by replacing it with a new line.
+     *
+     * @param line The line of text in the file that needs to be modified.
+     * @param newLine The new line that will replace the line to be modified in the file.
+     */
     private void modifyLine(String line, String newLine) {
         assert this.storageFile.exists() : "File to be modified does not exist!";
         File tempFile = new File("temp.txt");
@@ -95,6 +101,11 @@ public class Storage {
         tempFile.renameTo(this.storageFile);
     }
 
+    /**
+     * The function appends a given text to an existing file.
+     *
+     * @param text The text to be appended to the file.
+     */
     private void appendToFile(String text) {
         assert this.storageFile.exists() : "File to be written to does not exist!";
         try {
