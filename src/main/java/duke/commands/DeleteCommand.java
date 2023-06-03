@@ -20,6 +20,7 @@ public class DeleteCommand extends Command {
     public DeleteCommand(String message) {
         index = Integer.parseInt(message) - 1;
     }
+    
     @Override
     public void execute(TaskList tl, Ui ui, Storage s) {
         String taskText = tl.toText(this.index);
@@ -28,6 +29,7 @@ public class DeleteCommand extends Command {
         s.deleteTask(taskText);
         ui.display("Noted. I've removed this task:" + LS + taskString + LS + tl.numTasksMsg());
     }
+
     @Override
     public boolean isExit() {
         return false;
