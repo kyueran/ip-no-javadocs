@@ -6,9 +6,17 @@ import duke.storage.Storage;
 import duke.tasks.TaskList;
 import duke.ui.Ui;
 
+/**
+ * The type Delete command.
+ */
 public class DeleteCommand extends Command {
     private int index;
 
+    /**
+     * Instantiates a new Delete command.
+     *
+     * @param message the message
+     */
     public DeleteCommand(String message) {
         index = Integer.parseInt(message) - 1;
     }
