@@ -40,7 +40,7 @@ public class DeleteCommand extends Command {
     }
 
     /**
-     * Handles the case where the delete command is a duplicate.
+     * Exit status of the delete command.
      * @return
      */
     @Override

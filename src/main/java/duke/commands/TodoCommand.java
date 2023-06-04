@@ -44,7 +44,7 @@ public class TodoCommand extends Command {
     }
 
     /**
-     * Handles the case where the todo task is a duplicate.
+     * Exit status of the todo command.
      * @return
      */
     @Override
