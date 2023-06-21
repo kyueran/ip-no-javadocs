@@ -64,6 +64,22 @@ public class Storage {
         tempFile.renameTo(this.storageFile);
     }
 
+    /**
+     * The modifyLine function takes in a line to be modified and the new line that will replace it.
+     * It then reads through the file, looking for the specified line. Once found, it replaces that
+     * with the newLine and writes all other lines back into a temporary file. The original file is
+     * then deleted and replaced by this temporary one (which now contains all of its contents except
+     * for one modified line). This function assumes that there is only one instance of each unique
+     * string in storageFile; if there are multiple instances, only the first will be replaced. If no
+     * such string exists
+     *
+     * @param String line Identify the line to be modified
+     * @param String newLine Replace the line that is found in the file
+     *
+     * @return Nothing
+     *
+     * @docauthor Trelent
+     */
     private void modifyLine(String line, String newLine) {
         assert this.storageFile.exists() : "File to be modified does not exist!";
         File tempFile = new File("temp.txt");
@@ -95,6 +111,16 @@ public class Storage {
         tempFile.renameTo(this.storageFile);
     }
 
+    /**
+     * The appendToFile function takes in a String and appends it to the end of the file.
+     *
+     *
+     * @param String text Write text to the file
+     *
+     * @return Nothing
+     *
+     * @docauthor Trelent
+     */
     private void appendToFile(String text) {
         assert this.storageFile.exists() : "File to be written to does not exist!";
         try {

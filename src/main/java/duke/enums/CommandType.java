@@ -20,15 +20,47 @@ public enum CommandType {
     INCORRECT("incorrect", new DukeException("OOPS!!! I'm sorry, but I don't know what that means :-("));
     private String word;
     private DukeException e;
+
+    /**
+     * The CommandType function takes in a String word and an Exception e,
+     * and returns the CommandType of the given word. If the given word is not a valid command,
+     * then it throws an exception with message &quot;Invalid command type&quot;.
+
+     *
+     * @param String word Store the word that is being used to create a command
+     * @param DukeException e Set the exception to be thrown when an invalid command is entered
+     *
+     * @return A commandtype object
+     *
+     * @docauthor Trelent
+     */
     CommandType(String word, DukeException e) {
         this.word = word;
         this.e = e;
     }
 
+    /**
+     * The getErr function returns the DukeException object that was passed to the constructor.
+     *
+     *
+     *
+     * @return The dukeexception object that was passed to the constructor
+     *
+     * @docauthor Trelent
+     */
     public DukeException getErr() {
         return this.e;
     }
 
+    /**
+     * The toString function returns the word that is stored in this object.
+     *
+     *
+     *
+     * @return The word stored in the object
+     *
+     * @docauthor Trelent
+     */
     @Override
     public String toString() {
         return this.word;

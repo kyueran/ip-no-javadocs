@@ -19,6 +19,21 @@ import duke.exceptions.DukeException;
 
 public class Parser {
 
+    /**
+     * The parse function takes in a String and returns a Command object.
+     * It first splits the string into two parts, the command type and its arguments.
+     * Then it checks if the command type is valid, if not it throws an exception.
+     * If it is valid, then depending on what kind of command (TODO/DEADLINE/EVENT),
+     * we call another function to parse out all its arguments and return a Command object with them filled in.
+
+
+     *
+     * @param String fullCommand Split the command into two parts
+     *
+     * @return A command object
+     *
+     * @docauthor Trelent
+     */
     public static Command parse(String fullCommand) throws DukeException {
         String[] arr = fullCommand.split(" ", 2);
         String commandType = arr[0].toLowerCase();
