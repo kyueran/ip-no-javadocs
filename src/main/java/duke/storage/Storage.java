@@ -64,6 +64,11 @@ public class Storage {
         tempFile.renameTo(this.storageFile);
     }
 
+    /**
+     * Returns the number of lines in the file.
+     * @param line
+     * @param newLine
+     */
     private void modifyLine(String line, String newLine) {
         assert this.storageFile.exists() : "File to be modified does not exist!";
         File tempFile = new File("temp.txt");
@@ -95,6 +100,10 @@ public class Storage {
         tempFile.renameTo(this.storageFile);
     }
 
+    /**
+     * Adds a task to the file.
+     * @param task
+     */
     private void appendToFile(String text) {
         assert this.storageFile.exists() : "File to be written to does not exist!";
         try {

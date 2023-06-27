@@ -23,13 +23,23 @@ import duke.storage.Storage;
 import duke.tasks.TaskList;
 import duke.ui.Ui;
 
+/**
+ * The main class of the Duke application.
+ */
 public class Duke {
+    // The storage list of the application.
     private Storage storage;
+    // The task list of the application.
     private TaskList tasks;
+    // The user interface of the application.
     private Ui ui;
 
     public Duke() {}
 
+    /**
+     * Initializes the application with the given configuration settings and the given file path.
+     * @param filePath
+     */
     public Duke(String filePath) {
         ui = new Ui();
         storage = new Storage(filePath);
@@ -41,6 +51,9 @@ public class Duke {
         }
     }
 
+    /**
+     * Starts the application.
+     */
     public void run() {
         ui.showWelcome();
         boolean isExit = false;
@@ -59,6 +72,11 @@ public class Duke {
         }
     }
 
+    /**
+     * This method is used to get the response from the user.
+     * @param input
+     * @return
+     */
     public String getResponse(String input) {
         try {
             Command c = Parser.parse(input);
