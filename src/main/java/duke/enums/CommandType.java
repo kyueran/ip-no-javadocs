@@ -5,6 +5,9 @@ import static duke.ui.Ui.LS;
 
 import duke.exceptions.DukeException;
 
+/**
+ * Enum for the different types of commands.
+ */
 public enum CommandType {
     BYE("bye", new DukeException("")),
     LIST("list", new DukeException("")),
@@ -18,17 +21,40 @@ public enum CommandType {
     EVENT("event", new DukeException("Invalid format for Event." + LS
             + "Usage: event <description> /from <" + DATE_TIME_FORMAT + "> /to <" + DATE_TIME_FORMAT + ">")),
     INCORRECT("incorrect", new DukeException("OOPS!!! I'm sorry, but I don't know what that means :-("));
+
+    /**
+     * Returns the command word.
+     */
     private String word;
+
+    /**
+     * Returns the error message.
+     */
     private DukeException e;
+
+    /**
+     * Creates a new command type.
+     *
+     * @param word the command word.
+     * @param e    the exception to throw if the command is invalid.
+     */
     CommandType(String word, DukeException e) {
         this.word = word;
         this.e = e;
     }
 
+    /**
+     * Returns the error message.
+     * @return
+     */
     public DukeException getErr() {
         return this.e;
     }
 
+    /**
+     * Returns the command word.
+     * @return
+     */
     @Override
     public String toString() {
         return this.word;

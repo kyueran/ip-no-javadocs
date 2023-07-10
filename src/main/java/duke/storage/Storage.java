@@ -65,7 +65,7 @@ public class Storage {
     }
 
     /**
-     * Returns the number of lines in the file.
+     * Modifies a line in the file.
      * @param line
      * @param newLine
      */
