@@ -5,6 +5,7 @@ import static duke.ui.Ui.LS;
 
 import duke.exceptions.DukeException;
 
+// Returns the type of command that should be executed. This is used to generate an exception
 public enum CommandType {
     BYE("bye", new DukeException("")),
     LIST("list", new DukeException("")),
@@ -20,6 +21,8 @@ public enum CommandType {
     INCORRECT("incorrect", new DukeException("OOPS!!! I'm sorry, but I don't know what that means :-("));
     private String word;
     private DukeException e;
+
+    // Sets the command type. This is called when we have a command that is of the wrong type
     CommandType(String word, DukeException e) {
         this.word = word;
         this.e = e;

@@ -24,8 +24,14 @@ import duke.tasks.TaskList;
 import duke.ui.Ui;
 
 public class Duke {
+
+    // Returns the storage to use for this file. This is a private method so it can be shared by subclasses
     private Storage storage;
+
+    // Returns the list of tasks to be run. This is a private method so it can be shared
     private TaskList tasks;
+
+    // Called when user presses enter in the UI. This is a no - op
     private Ui ui;
 
     public Duke() {}
@@ -41,13 +47,17 @@ public class Duke {
         }
     }
 
+    /**
+    * Runs the program until the user enters a quit command. This method is blocking so should be called in a seperate thread
+    */
     public void run() {
         ui.showWelcome();
         boolean isExit = false;
+        // Executes the tasks in the background.
         while (!isExit) {
             try {
                 String fullCommand = ui.readCommand();
-                ui.showLine(); // show the divider line ("_______")
+                ui.showLine();
                 Command c = Parser.parse(fullCommand);
                 c.execute(tasks, ui, storage);
                 isExit = c.isExit();
@@ -59,6 +69,13 @@ public class Duke {
         }
     }
 
+    /**
+    * Parses and executes a command. This is the entry point for command execution. It will return the response from the command and show an error if there is an error.
+    * 
+    * @param input - The command to parse and execute. Must be parsable by Parser.
+    * 
+    * @return The response from the command as a string or null if there is an error in the command or the user chose to exit
+    */
     public String getResponse(String input) {
         try {
             Command c = Parser.parse(input);
